@@ -2,21 +2,18 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../context/themeContext';
 
-function Loading({ visible }) {
+function Loading() {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <Div visible={visible} theme={theme}>
+        <Div theme={theme}>
             <div className="loader"></div>
         </Div>
     );
 }
 
 const Div = styled.div`
-    display: ${props => {     
-        // The below usage gives warning because we're not using transient props.
-        return (props.visible == 'true') ? 'flex' : 'none';
-    }};
+    display: flex;
     position: absolute;
     z-index: 50;
     top: 0;

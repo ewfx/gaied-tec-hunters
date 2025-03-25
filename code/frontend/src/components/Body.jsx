@@ -7,20 +7,39 @@ function Body() {
     const { theme } = useContext(ThemeContext);
     const [loading, setLoading] = useState(false);
 
-    function fileSelectFn(e) {
-        e.preventDefault();
-        setLoading(true);
-        fetch(`${import.meta.env.VITE_SERVER_URL}/`, {
-            method: 'POST',
-        }).then(res => {
+    async function fileSelectFn(e) {
+        try {
+            e.preventDefault();
+            setLoading(true);
+
+            const files = e.target.files;
+            const formData = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                formData.append('file' + (i + 1), files[i]);
+            }
+            e.target.value = null;
+
+            fetch(`${import.meta.env.VITE_SERVER_URL}/extract`, {
+                method: 'POST',
+                body: formData,
+                // headers: {
+                //     'Content-Type': 'multipart/form-data'
+                // }
+            }).then(async res => {
                 return res.json();
             }).then(body => {
-
+                let extract = body.map(b => b.replace(/```json|```/g, "").trim());
+                let bodyAsObject = extract.map(ex => JSON.parse(ex));
+                console.log(bodyAsObject);
+                document.x = bodyAsObject;
             }).catch(err => {
-
+                console.log(err);
             }).finally(() => {
                 setLoading(false);
             });
+        } catch (err) {
+            console.log('API Call Error:', err);
+        }
     }
     return (
         <Box>
@@ -29,10 +48,10 @@ function Body() {
             <InputBox>
                 <Label htmlFor='emlinput' theme={theme}>
                     Select EML Files
-                    <input onChange={fileSelectFn} type='file' accept='.eml' id='emlinput' style={{ display: 'none' }}></input>
+                    <input onChange={fileSelectFn} type='file' accept='.eml' multiple id='emlinput' style={{ display: 'none' }}></input>
                 </Label>
             </InputBox>
-            <Loading visible={loading.toString()} />
+            {loading && <Loading />}
         </Box>
     );
 }
