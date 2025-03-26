@@ -92,18 +92,26 @@ graph TD;
    ```sh
    git clone https://github.com/ewfx/gaied-tec-hunters.git
    ```
-2. Install dependencies  
-   ```sh
-   npm install
-   pip install -r requirements.txt (for Python)
-   ```
-3. Run the project  
+2. Install dependencies
+   a. For frontend:
+       ```sh
+       cd ./code/frontend/
+       npm install
+       ```
+   b. For backend:
+       ```
+       cd ./code/backend/
+       pip install -r requirements.txt
+       ```
+4. Run the project  
    ```sh
 
    # For running the frontend:
-   npm start
+   cd ./code/frontend/
+   npm run dev
 
    # For running the backend flask server:
+   cd ./code/backend/
    python main.py
    ```
 
