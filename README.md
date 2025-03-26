@@ -93,17 +93,17 @@ graph TD;
    git clone https://github.com/ewfx/gaied-tec-hunters.git
    ```
 2. Install dependencies
-   a. For frontend:
-       ```sh
-       cd ./code/frontend/
-       npm install
-       ```
-   b. For backend:
-       ```
-       cd ./code/backend/
-       pip install -r requirements.txt
-       ```
-4. Run the project  
+   ```sh
+   
+   # For frontend:
+   cd ./code/frontend/
+   npm install
+
+   # For backend:
+   cd ./code/backend/
+   pip install -r requirements.txt
+   ```
+3. Run the project  
    ```sh
 
    # For running the frontend:
