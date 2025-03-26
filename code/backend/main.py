@@ -10,6 +10,8 @@ from flask import Flask, request, jsonify
 import argparse
 from email import policy
 from email.parser import BytesParser
+import PyPDF2
+import docx
 from PyPDF2 import PdfReader
 from io import BytesIO
 import docx2txt
@@ -147,6 +149,59 @@ llm = LLM(
 agents = TestAgents()
 tasks = TestTasks()
 
+@app.route('/extract_doc', methods=['GET', 'POST'])
+def extract_doc():
+    if 'file' not in request.files:
+        return "No file uploaded", 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return "No selected file", 400
+
+    # Read file content into memory
+    file_content = file.read()
+    file_stream = BytesIO(file_content)
+
+    text_content = ""
+
+    # Handle PDF files
+    if file.filename.lower().endswith('.pdf'):
+        try:
+            reader = PyPDF2.PdfReader(file_stream)
+            for page in reader.pages:
+                text_content += page.extract_text()
+        except Exception as e:
+            return f"Error reading PDF: {str(e)}", 400
+
+    # Handle DOCX files
+    elif file.filename.lower().endswith(('.docx', '.doc')):
+        try:
+            doc = docx.Document(file_stream)
+            for para in doc.paragraphs:
+                text_content += para.text + '\n'
+        except Exception as e:
+            return f"Error reading DOCX: {str(e)}", 400
+
+        # setting up the agent
+    email_reader_agent = agents.email_data_extractor()
+
+    # setting up the task
+    extract_email_info = tasks.extract_details(
+        email_reader_agent,
+        text_content
+    )
+
+    crew = Crew(
+        agents=[email_reader_agent],
+        tasks=[extract_email_info],
+    )
+
+    json_output = crew.kickoff()
+    # json_outputs_list.append(json_output)
+
+    # return jsonify(str(json_outputs_list))
+    return jsonify(str(json_output))
+
 
 @app.route('/extract', methods=['GET', 'POST'])
 def extract1():
@@ -158,39 +213,40 @@ def extract1():
     print(request.files)
     print(len(request.files))
     # print(request.files["file"][0])
-    for i in range(len(request.files)):
-        file = request.files[f"file{i+1}"]
+    # for i in range(len(request.files)):
+    file = request.files[f"file"]
+    # filename = file
+    # file = request.files["file"]
+    print(file.filename)
+    if file.filename == "":
+        return jsonify({"error": "Empty filename"}), 400
 
-        # file = request.files["file"]
-        print(file.filename)
-        if file.filename == "":
-            return jsonify({"error": "Empty filename"}), 400
-
-        save_email_content(file.stream)
-        # return jsonify({"message": "EML file processed successfully"})
+    save_email_content(file.stream)
+    # return jsonify({"message": "EML file processed successfully"})
 
 
-        with open('email_content.txt', 'r', encoding='utf-8') as f:
-            email_body = f.read()
+    with open('email_content.txt', 'r', encoding='utf-8') as file:
+        email_body = file.read()
 
-        # setting up the agent
-        email_reader_agent = agents.email_data_extractor()
+    # setting up the agent
+    email_reader_agent = agents.email_data_extractor()
 
-        #setting up the task
-        extract_email_info = tasks.extract_details(
-            email_reader_agent,
-            email_body
-        )
+    #setting up the task
+    extract_email_info = tasks.extract_details(
+        email_reader_agent,
+        email_body
+    )
 
-        crew = Crew(
-                    agents=[email_reader_agent],
-                    tasks=[extract_email_info],
-        )
+    crew = Crew(
+        agents=[email_reader_agent],
+        tasks=[extract_email_info],
+    )
 
-        json_output = crew.kickoff()
-        json_outputs_list.append(json_output)
+    json_output = crew.kickoff()
+    # json_outputs_list.append(json_output)
 
-    return jsonify(str(json_outputs_list))
+    # return jsonify(str(json_outputs_list))
+    return jsonify(str(json_output))
 
 
 

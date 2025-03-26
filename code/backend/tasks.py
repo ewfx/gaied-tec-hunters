@@ -10,10 +10,11 @@ template = {
       "from": "",
       "req_type": "",
       "sub_req_type": "",
-      "summary_of_the_mail": "",
+      "summary": "",
       "confidence_score": 0.0,
       "overlap": 0.0,
       "overlapping_requests": [],
+      "urgency": "High/Low",
       "duplicate": "True/False"
 }
 
@@ -80,8 +81,8 @@ class TestTasks:
                 **Task**: [You have to go through all the content of the email thouroughly and extract all the relevant information to fill the 
                 json template which is provided: {json_template}]
                 
-                Summary of the mail should contain nested json of all the key value pairs provided in the mail along with a 
-                text summary of the whole mail
+                Summary field in json should just contain a consize summary of the mail having relavent information only, 
+                keep all significant data in the summary as well.
                 
                 The request and the corresponding subrequest types in the json templates should be one of the following table and:
                 
@@ -99,9 +100,13 @@ class TestTasks:
                 In the json template provided, confidence score is the accuracy by which you are detecting the request and sub
                 request types.
                 
+                The urgency field in the template should be filled with High only if such urgency is mentionaed in the mail 
+                otherwise by default keep it low/medium.
+                
                 You can use this filled json as reference(do not these values as they are dummy values) which you 
                 can you to create the final json:
-                {
+                
+                
                   "timestamp": "2025-03-25T14:30:00Z",
                   "subject": "Loan Repayment Inquiry",
                   "to": "support@bankxyz.com",
@@ -112,8 +117,11 @@ class TestTasks:
                   "confidence_score": 0.92,
                   "overlap": 0.08,
                   "overlapping_requests": ["Loan Prepayment Charges", "Loan Closure Request"],
+                  "urgency": "High",
                   "duplicate":false
-                }
+                  
+                
+                
                 
                 **Parameters**: {email_content}
                                     """),
