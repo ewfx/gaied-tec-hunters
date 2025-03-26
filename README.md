@@ -87,8 +87,8 @@ graph TD;
     agents_collab -->|Classified Data| result_report
 ```
 
-```markdown
-![Architecture Diagram](artifacts/arch/System Architecture Diagram.png)
+![image](https://github.com/user-attachments/assets/aee47472-25ed-4be5-b0fc-9d99b1701cf6)
+
 
 ## 🏃 How to Run
 1. Clone the repository  
