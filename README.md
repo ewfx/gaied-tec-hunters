@@ -63,15 +63,17 @@ Optimizing the React UI for smooth user experience and real-time insights.
 ## 🏃 How to Run
 1. Clone the repository  
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/ewfx/gaied-tec-hunters.git
    ```
 2. Install dependencies  
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   npm install
+   pip install -r requirements.txt (for Python)
    ```
 3. Run the project  
    ```sh
-   npm start  # or python app.py
+   npm start
+   python app.py
    ```
 
 ## 🏗️ Tech Stack
