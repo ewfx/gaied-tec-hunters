@@ -84,3 +84,4 @@ Optimizing the React UI for smooth user experience and real-time insights.
 - **Alok Singh** - [harmonicfunc](#) | [LinkedIn](#)
 - **Ayush Kumar** - [ayush-kumar0](#) | [LinkedIn](#)
 - **Yashasvi Singh** - [yashasvisingh1](#) | [LinkedIn](#)
+- **Guruvulu Avula** - [Guruvula Avula](#)
