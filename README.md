@@ -58,7 +58,34 @@ Managing overlapping request types effectively in reports.
 Integrating CrewAI with Flask for seamless LLM-driven classification.
 Optimizing the React UI for smooth user experience and real-time insights.
 
+## System Architecture Diagram
+```mermaid
+graph TD;
+    subgraph "User Interface"
+        file_input[".eml, .pdf, .doc, etc. File Input"]
+    end
 
+    subgraph "Backend Service"
+        text_extraction["Text Extraction"]
+        attachment_processing["Attachment Processing"]
+    end
+
+    subgraph "Agentic Engine"
+        llm_processing["LLM Processing"]
+        agents_collab["Agents Collaboration"]
+    end
+
+    subgraph "Output Generation"
+        result_report["Result Report Generated"]
+    end
+
+    file_input -->|Send to Backend| text_extraction
+    file_input -->|Send to Backend| attachment_processing
+    text_extraction -->|Extracted Text| llm_processing
+    attachment_processing -->|Processed Attachments| llm_processing
+    llm_processing -->|Classified Data| agents_collab
+    agents_collab -->|Classified Data| result_report
+```
 
 ## 🏃 How to Run
 1. Clone the repository  
