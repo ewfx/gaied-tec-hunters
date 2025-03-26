@@ -80,7 +80,7 @@ Optimizing the React UI for smooth user experience and real-time insights.
 - 🔹 AI & NLP: CrewAI
 
 ## 👥 Team
-- **Anvit Pawar** - [anvitpawar](hi) | [anvit-pawar-b7602aba](#)
+- **Anvit Pawar** - [GitHub]([anvitpawar](https://github.com/anvitpawar)) | [LinkedIn](https://www.linkedin.com/in/anvit-pawar-b7602aba/)
 - **Alok Singh** - [harmonicfunc](#) | [LinkedIn](#)
 - **Ayush Kumar** - [ayush-kumar0](#) | [LinkedIn](#)
 - **Yashasvi Singh** - [yashasvisingh1](#) | [LinkedIn](#)
