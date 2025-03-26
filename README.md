@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 Gen AI Orchestrator for Email and Document Triage/Routing by TecHunters
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
@@ -14,7 +14,9 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+This project focuses on automating email classification using Generative AI and LLMs to interpret and process emails and attachments. The solution is designed for consumer loans and bank lending services, ensuring accurate categorization of requests, prioritization, and duplicate detection.
+
+It aims to solve challenges related to manual email classification, overlapping request types, and duplicate detection, making it easier for financial institutions to manage email-based queries efficiently.
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
@@ -24,37 +26,64 @@ A brief overview of your project and its purpose. Mention which problem statemen
 ![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+The project was inspired by the inefficiencies in manual email classification and the need for a scalable AI-driven solution. Banking and lending services handle large volumes of customer emails daily, making automation critical for faster response times and improved customer satisfaction.
+
+We wanted to leverage LLMs, CrewAI, and other AI-driven tools to streamline the process, reduce human intervention, and improve accuracy in classifying and prioritizing emails.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+The project performs the following key functions:
+Processes EML files by extracting the email body and attachment text.
+Classifies requests and sub-requests using Generative AI.
+Assigns priority levels to classified emails.
+Detects duplicate emails based on content similarity.
+Calculates confidence scores for classification results.
+Identifies overlapping request types and displays overlap percentage.
+Provides a React-based UI for user interaction and monitoring.
+Uses a Flask backend powered by CrewAI for LLM-driven classification.
+Generates JSON-formatted reports, summarizing classification insights.
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+React for an interactive user interface.
+Flask for the backend API and data processing.
+CrewAI for AI agent task orchestration.
+Hugging Face models & DeepSeek for NLP-based classification.
+LangChain for enhanced LLM interactions.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+Ensuring accurate classification when email bodies contain ambiguous content.
+Balancing processing speed and AI model complexity to maintain efficiency.
+Extracting meaningful content from attachments while prioritizing email body text.
+Fine-tuning duplicate detection to avoid false positives.
+Managing overlapping request types effectively in reports.
+Integrating CrewAI with Flask for seamless LLM-driven classification.
+Optimizing the React UI for smooth user experience and real-time insights.
+
+
 
 ## 🏃 How to Run
 1. Clone the repository  
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/ewfx/gaied-tec-hunters.git
    ```
 2. Install dependencies  
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   npm install
+   pip install -r requirements.txt (for Python)
    ```
 3. Run the project  
    ```sh
-   npm start  # or python app.py
+   npm start
+   python app.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Frontend: React
+- 🔹 Backend: Flask (Python)
+- 🔹 AI & NLP: CrewAI
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Alok Kumar Singh** - [GitHub](https://github.com/harmonicfunc) | [LinkedIn](https://www.linkedin.com/in/alok--d95/)
+- **Anvit Pawar** - [GitHub](https://github.com/anvitpawar) | [LinkedIn](https://www.linkedin.com/in/anvit-pawar-b7602aba/)
+- **Ayush Kumar** - [GitHub](https://github.com/Ayush-Kumar0) | [LinkedIn](https://www.linkedin.com/in/ayushkumar953248/)
+- **Yashasvi Singh** - [GitHub](https://github.com/yashasvisingh1) | [LinkedIn](https://www.linkedin.com/in/yashasvi7/)
+- **Guruvulu Avula** - [LinkedIn](https://www.linkedin.com/in/guruvulu-avula-6273baa1/)
