@@ -1,19 +1,32 @@
 import styled from "styled-components";
 import Header from "./components/Header";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "./context/themeContext";
 import Body from "./components/Body";
+import Output from "./components/Output";
 
 function App() {
   const { theme } = useContext(ThemeContext);
+  const [changeDetector, setChangeDetector] = useState(0);
+
+  function addNewOutput() {
+    setChangeDetector(x => x + 1);
+  }
 
   return (
     <Wrapper theme={theme}>
       <Header />
-      <Body />
+      <Body addNewOutput={addNewOutput} />
+      <Output changeDetector={changeDetector} />
     </Wrapper>
   );
 }
+
+
+
+
+
+
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.bgcolor};
