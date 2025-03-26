@@ -99,7 +99,11 @@ graph TD;
    ```
 3. Run the project  
    ```sh
+
+   # For running the frontend:
    npm start
+
+   # For running the backend flask server:
    python app.py
    ```
 
