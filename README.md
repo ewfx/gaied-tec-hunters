@@ -19,11 +19,8 @@ This project focuses on automating email classification using Generative AI and 
 It aims to solve challenges related to manual email classification, overlapping request types, and duplicate detection, making it easier for financial institutions to manage email-based queries efficiently.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
+🔗 [Live Demo](https://drive.google.com/file/d/1pE0wioNv1XMJX4X-9Wog99GZgAaK0k0f/view)   
+📹 [Video Demo](https://drive.google.com/file/d/1pE0wioNv1XMJX4X-9Wog99GZgAaK0k0f/view) 
 
 ## 💡 Inspiration
 The project was inspired by the inefficiencies in manual email classification and the need for a scalable AI-driven solution. Banking and lending services handle large volumes of customer emails daily, making automation critical for faster response times and improved customer satisfaction.
