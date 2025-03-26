@@ -104,7 +104,7 @@ graph TD;
    npm start
 
    # For running the backend flask server:
-   python app.py
+   python main.py
    ```
 
 ## 🏗️ Tech Stack
