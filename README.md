@@ -59,7 +59,8 @@ Integrating CrewAI with Flask for seamless LLM-driven classification.
 Optimizing the React UI for smooth user experience and real-time insights.
 
 ## System Architecture Diagram
-```graph TD;
+```mermaid
+graph TD;
     subgraph "User Interface"
         file_input[".eml, .pdf, .doc, etc. File Input"]
     end
